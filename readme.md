@@ -1,3 +1,21 @@
+** To run Install GCC toolchain and SDK**
+git clone --recursive https://github.com/pfalcon/esp-open-sdk
+make STANDALONE=y |& tee make0.log
+edit  .bashrc
+export PATH="$HOME/esp-open-sdk/xtensa-lx106-elf/bin/:$PATH"
+run xtensa-lx106-elf-gcc -v to validate the install
+
+** Install RTOS SDK **
+git clone https://github.com/espressif/ESP8266_RTOS_SDK.git
+
+Modify gen_misc.sh
+$export SDK_PATH=~/ESP8266_RTOS_SDK
+$export BIN_PATH=~/BIN_ESP8266
+
+execute ./gen_misc.sh
+burn
+
+
 **MQTT client with ESP8266 RTOS SDK**
 
 This project contains ESP8266 port of the embedded C client in Eclipse Paho project (http://www.eclipse.org/paho/) 
